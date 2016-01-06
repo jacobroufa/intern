@@ -1,5 +1,6 @@
 # ![Intern testing framework](https://theintern.github.io/intern/images/readme-logo.png)
 
+[![Codeship Build Status](https://codeship.com/projects/572720b0-96c3-0133-e9e9-527c2a16e9a3/status?branch=master)](https://codeship.com/projects/572720b0-96c3-0133-e9e9-527c2a16e9a3/status?branch=master)
 [![Build Status](https://travis-ci.org/theintern/intern.png?branch=master)](https://travis-ci.org/theintern/intern)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/theintern/intern.svg)](http://isitmaintained.com/project/theintern/intern "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/theintern/intern.svg)](http://isitmaintained.com/project/theintern/intern "Percentage of issues still open")
