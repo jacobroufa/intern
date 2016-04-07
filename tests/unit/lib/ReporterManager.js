@@ -2,8 +2,11 @@ define([
 	'intern!object',
 	'intern/chai!assert',
 	'../../../lib/ReporterManager',
-	'dojo/Promise'
-], function (registerSuite, assert, ReporterManager, Promise) {
+	'../../../lib/reporters/JUnit',
+	'dojo/Promise',
+	'dojo/has',
+	'dojo/has!host-node?dojo/node!fs'
+], function (registerSuite, assert, ReporterManager, JUnit, Promise, has, fs) {
 	registerSuite({
 		name: 'intern/lib/ReporterManager',
 
@@ -106,6 +109,30 @@ define([
 				return reporterManager.emit('runEnd');
 			}).then(function () {
 				assert.deepEqual(actual, [ reporter, secondError ]);
+			});
+		},
+
+		'added reporters properly create report directories': function () {
+			if (!has('host-node')) {
+				this.skip();
+			}
+
+			var simpleName = 'test.result';
+			var dirName = 'report/dir/test.result';
+			var reporterManager = new ReporterManager();
+			var noDirHandle = reporterManager.add(JUnit, {
+				filename: simpleName
+			});
+			var dirHandle = reporterManager.add(JUnit, {
+				filename: dirName
+			});
+
+			fs.stat(simpleName, function(err, stat) {
+				assert.isTrue(stat.isFile(), 'the file test.result should exist');
+			});
+
+			fs.stat(dirName, function(err, stat) {
+				assert.isTrue(stat.isFile(), 'the file report/dir/test.result should exist and directories should be created');
 			});
 		}
 	});
