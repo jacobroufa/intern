@@ -59,7 +59,7 @@
     "watch": "intern-dev-build watch"
   },
   "dependencies": {
-    "@dojo/core": "~0.3.0",
+    "@dojo/core": "~0.4.0",
     "@dojo/has": "~0.1.1",
     "@dojo/interfaces": "~0.2.0",
     "@dojo/shim": "~0.2.3",
